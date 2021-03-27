@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PyTube</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/style.css') }}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<div class="header">
+			<div class="logo">
+				<div class="logo-row">
+					<a href="/"><h1>FreeTube</h1></a>
+				</div>
+			</div>
+			<div class="right-header">
+				<ul>
+					<a onclick="toTutorial()"><li>Come si fa?</li></a>
+					<a onclick="toFeatures()"><li>Features</li></a>
+					<a href="/contact"><li>Contattaci</li></a>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		{% block container %}
+		{% endblock %}
+	</div>
+	<footer>
+		<div class="space"></div>
+		<span class="footer">©2021 FreeTube Versione ALPHA 0.1 Segui i nostri social: <a href=""><img src="{{ url_for('static', filename='images/instagram.svg')}}" alt="instagram"></a> <a href=""><img src="{{ url_for('static', filename='images/facebook.svg')}}" alt="facebook"></a> <a href=""><img src="{{ url_for('static', filename='images/twitter.svg')}}" alt="twitter"></a> <a href=""><img src="{{ url_for('static', filename='images/email.svg')}}" alt="email"></a></span>
+	</footer>
+<script src="{{ url_for('static', filename='scripts/script.js')}}"></script>
+</body>
+</html>

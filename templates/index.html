@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block container %}
+<div class="image">
+			<h2 class="header2 margin-top">Downloader di video da YouTube in alta risoluzione</h2>
+			<form action="/download" method="POST" class="form">
+				<input type="text" name="link" class="input margin-bottom">
+				<div class="submit">
+					<input type="submit" value="Scarica video" name="video" class="margin-bottom submit-button">
+					<input type="submit" value="Scarica audio" name="audio" class="margin-bottom submit-button">
+				</div>
+			</form>
+		</div>
+		<h2 class="header2 separator" id="toFeatures">Il Miglior Sito Italiano Per Scaricare Contenuti Da YouTube</h2>
+		<div class="cards">
+			<div class="card">
+				<div class="card-image">
+					<img src="{{ url_for('static', filename='images/uhr.svg')}}" alt="Orologio" width="180px">
+				</div>
+				<div class="card-content">
+					<h2>Veloce e facile da usare</h2>
+					<p>Questo sito offre il modo più veloce e facile per scaricare e salvare qualunque video in MP3 p MP4. Semplicemente copia l'URL YouTube, incollalo nel campo di ricerca e clicca sul pulsante "Converti". Non c'è bisogno di registrarsi.</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-image">
+					<img src="{{ url_for('static', filename='images/infinity.svg')}}" alt="Orologio" width="180px">
+				</div>
+				<div class="card-content">
+					<h2>Senza limitazioni</h2>
+					<p>Senza limitazioni Scarica e converti tutti i video YouTube che vuoi, senza limitazioni e sempre gratis. Doggo ipsum big ol pupper shibe blop extremely cuuuuuute, shoob doing me a frighten, maximum borkdrive big ol pupper. Woofer blop extremely cuuuuuute big ol pupper you are doin me a concern many pats.</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-image">
+					<img src="{{ url_for('static', filename='images/shield.svg')}}" alt="Orologio" width="180px">
+				</div>
+				<div class="card-content">
+					<h2>100% sicuro e pulito</h2>
+					<p>Con la crescente preoccupazione per la sicurezza dei dispositivi, le persone attribuiscono grande importanza ai propri dati personali. Il servizio è totalmente libero da ogni virus, sotto un'attenta supervisione basata sul database di sicurezza.</p>
+				</div>
+			</div>
+		</div>
+		<h2 class="header2">Converti i video da YouTube in tutti i format</h2>
+		<div class="images">
+			<div class="svg-icon"><img src="{{ url_for('static', filename='images/icon1.svg')}}" alt=""></div>
+			<div class="svg-icon"><img src="{{ url_for('static', filename='images/icon2.svg')}}" alt=""></div>
+			<div class="svg-icon"><img src="{{ url_for('static', filename='images/icon3.svg')}}" alt=""></div>
+			<div class="svg-icon"><img src="{{ url_for('static', filename='images/icon4.svg')}}" alt=""></div>
+			<div class="svg-icon"><img src="{{ url_for('static', filename='images/icon5.svg')}}" alt=""></div>
+		</div>
+		<h4 class="header2">Usando il nostro Convertitore puoi convertire facilmente i video di YouTube in file MP4 e scaricarli gratuitamente - questo servizio funziona con computer, tablet e dispositivi mobili. I file audio vengono sempre convertiti nella massima qualità disponibile.</h4>
+
+		<div class="button-area">
+			<input type="submit" value="Converti Ora" class="start-button">
+		</div>
+		<h2 class="header2">Come convertire un video da YouTube?</h2>
+		<div class="tutorial" id="toTutorial">
+			<div class="block">
+				<div class="number1 h1center">
+					<h1>1</h1>
+				</div>
+				<div class="block-content">
+					<p>Incolla l'URL di YouTube o inserisci la parola chiave nel campo di ricerca</p>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="number2 h1center">
+					<h1>2</h1>
+			    </div>
+			    <div class="block-content">
+			    	<p>Fare clic sul pulsante "Converti MP4".</p>
+			    </div>
+		    </div>
+
+			<div class="block">
+				<div class="number3 h1center">
+					<h1>3</h1>
+				</div>
+				<div class="block-content">
+					<p>Aspetta finchè la conversione non sia stata completata e scarica il file. Molto semplice e veloce.</p>
+				</div>
+			</div>
+		</div>
+{% endblock %}
