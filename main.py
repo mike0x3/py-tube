@@ -13,6 +13,7 @@ def delete_file(name):
 	direction = '/static/videos/'
 	time.sleep(300)
 	os.remove(f'{direction}{name}')
+	return 'ok'
 
 @app.route('/', methods=['POST', 'GET'])
 def index():	
@@ -62,49 +63,6 @@ def index():
 	else:
 		return render_template('index.html')
 
-@app.route('/download', methods=['GET', 'POST'])
-def yt_download():
-	variable_i = open('variable.txt', 'r')
-	i = int(variable_i.read())
-	variable_i.close()
-	link = request.form['link']
-	yt = YouTube(link)
-	titolo = yt.title
-	descrizione = yt.description
-	preview = yt.thumbnail_url
-	try:
-		if request.form['video'] == 'Scarica video':
-			yt.streams.filter(file_extension='mp4').first().download('/static/videos')
-			file_name = f'test{i}.mp4'
-			os.rename(f'/static/videos/{titolo}.mp4', f'/static/videos/test{i}.mp4')
-			variable_i = open('variable.txt', 'w')
-			variable_i.write(str(i+1))
-			variable_i.close()
-			threading.Thread(target=delete_file, name="Thread1", args=[file_name]).start()
-			return render_template('download.html', titolo=titolo, descrizione=descrizione, preview=preview, file_name=file_name)
-	except Exception:
-		pass
-	
-	if request.form['audio'] == 'Scarica audio':
-		gay_list = yt.streams.filter(only_audio=True).first()
-		yt.streams.filter(only_audio=True).first().download('/static/videos')
-		extension = str(gay_list)
-		ext = extension[37:41]
-		if ext == "webm":
-			print(ext)
-			file_name = f'test{i}.{ext}'
-		else: 
-			ext = extension[37:40]
-			file_name = f'test{i}.{ext}'
-		os.rename(f'/static/videos/{titolo}.{ext}', f'/static/videos/test{i}.mp4')
-		variable_i = open('variable.txt', 'w')
-		variable_i.write(str(i+1))
-		variable_i.close()
-		threading.Thread(target=delete_file, name="Thread1", args=[file_name]).start()
-		return render_template('download.html', titolo=titolo, descrizione=descrizione, preview=preview, file_name=file_name)
-
-	
-
 @app.route('/contact', methods=["POST", "GET"])
 def contattaci():
 	if request.method == "POST":
@@ -128,7 +86,3 @@ def contattaci():
 		flash('La sua domanda é stata inviata ai nostri admin!')
 		return render_template('contact.html')
 	return render_template('contact.html')
-
-
-
-
