@@ -38,25 +38,27 @@ def index():
 				return render_template('index.html', titolo=titolo, descrizione=descrizione, preview=preview, file_name=file_name)
 		except Exception:
 			pass
-	
-		if request.form['audio'] == 'Scarica audio':
-			gay_list = yt.streams.filter(only_audio=True).first()
-			yt.streams.filter(only_audio=True).first().download('/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos')
-			extension = str(gay_list)
-			ext = extension[37:41]
-			if ext == "webm":
-				print(ext)
-				file_name = f'test{i}.{ext}'
-			else: 
-				ext = extension[37:40]
-				file_name = f'test{i}.{ext}'
-			os.rename(f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/{titolo}.{ext}', f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/test{i}.mp4')
-			variable_i = open('variable.txt', 'w')
-			variable_i.write(str(i+1))
-			variable_i.close()
-			threading.Thread(target=delete_file, name="Thread1", args=[file_name]).start()
-			flash('File in arrivo')
-			return render_template('index.html', titolo=titolo, descrizione=descrizione, preview=preview, file_name=file_name)
+		try:
+			if request.form['audio'] == 'Scarica audio':
+				gay_list = yt.streams.filter(only_audio=True).first()
+				yt.streams.filter(only_audio=True).first().download('/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos')
+				extension = str(gay_list)
+				ext = extension[37:41]
+				if ext == "webm":
+					print(ext)
+					file_name = f'test{i}.{ext}'
+				else: 
+					ext = extension[37:40]
+					file_name = f'test{i}.{ext}'
+				os.rename(f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/{titolo}.{ext}', f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/test{i}.mp4')
+				variable_i = open('variable.txt', 'w')
+				variable_i.write(str(i+1))
+				variable_i.close()
+				threading.Thread(target=delete_file, name="Thread1", args=[file_name]).start()
+				flash('File in arrivo')
+				return render_template('index.html', titolo=titolo, descrizione=descrizione, preview=preview, file_name=file_name)
+		except Exception:
+			pass
 	else:
 		return render_template('index.html')
 
