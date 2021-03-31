@@ -10,7 +10,7 @@ from pytube import YouTube
 app = Flask(__name__)
 app.secret_key = 'qwdiOKLWF2342JKEd'
 def delete_file(name):
-	direction = '/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/'
+	direction = '/static/videos/'
 	time.sleep(300)
 	os.remove(f'{direction}{name}')
 
@@ -27,9 +27,9 @@ def index():
 		preview = yt.thumbnail_url
 		try:
 			if request.form['video'] == 'Scarica video':
-				yt.streams.filter(file_extension='mp4').first().download('/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos')
+				yt.streams.filter(file_extension='mp4').first().download('/static/videos')
 				file_name = f'test{i}.mp4'
-				os.rename(f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/{titolo}.mp4', f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/test{i}.mp4')
+				os.rename(f'/static/videos/{titolo}.mp4', f'/static/videos/test{i}.mp4')
 				variable_i = open('variable.txt', 'w')
 				variable_i.write(str(i+1))
 				variable_i.close()
@@ -41,7 +41,7 @@ def index():
 		try:
 			if request.form['audio'] == 'Scarica audio':
 				gay_list = yt.streams.filter(only_audio=True).first()
-				yt.streams.filter(only_audio=True).first().download('/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos')
+				yt.streams.filter(only_audio=True).first().download('/static/videos')
 				extension = str(gay_list)
 				ext = extension[37:41]
 				if ext == "webm":
@@ -50,7 +50,7 @@ def index():
 				else: 
 					ext = extension[37:40]
 					file_name = f'test{i}.{ext}'
-				os.rename(f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/{titolo}.{ext}', f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/test{i}.mp4')
+				os.rename(f'/static/videos/{titolo}.{ext}', f'/static/videos/test{i}.mp4')
 				variable_i = open('variable.txt', 'w')
 				variable_i.write(str(i+1))
 				variable_i.close()
@@ -74,9 +74,9 @@ def yt_download():
 	preview = yt.thumbnail_url
 	try:
 		if request.form['video'] == 'Scarica video':
-			yt.streams.filter(file_extension='mp4').first().download('/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos')
+			yt.streams.filter(file_extension='mp4').first().download('/static/videos')
 			file_name = f'test{i}.mp4'
-			os.rename(f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/{titolo}.mp4', f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/test{i}.mp4')
+			os.rename(f'/static/videos/{titolo}.mp4', f'/static/videos/test{i}.mp4')
 			variable_i = open('variable.txt', 'w')
 			variable_i.write(str(i+1))
 			variable_i.close()
@@ -87,7 +87,7 @@ def yt_download():
 	
 	if request.form['audio'] == 'Scarica audio':
 		gay_list = yt.streams.filter(only_audio=True).first()
-		yt.streams.filter(only_audio=True).first().download('/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos')
+		yt.streams.filter(only_audio=True).first().download('/static/videos')
 		extension = str(gay_list)
 		ext = extension[37:41]
 		if ext == "webm":
@@ -96,7 +96,7 @@ def yt_download():
 		else: 
 			ext = extension[37:40]
 			file_name = f'test{i}.{ext}'
-		os.rename(f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/{titolo}.{ext}', f'/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/test{i}.mp4')
+		os.rename(f'/static/videos/{titolo}.{ext}', f'/static/videos/test{i}.mp4')
 		variable_i = open('variable.txt', 'w')
 		variable_i.write(str(i+1))
 		variable_i.close()
