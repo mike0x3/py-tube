@@ -31,8 +31,9 @@ def index():
 		preview = yt.thumbnail_url
 		if 'video' in request.form:
 			if request.form['video'] == 'Scarica video':
-				yt.streams.filter(file_extension='mp4').first().download('static/videos')
-				file_name = f'{titolo}.mp4'
+				down_name = f'video{i}'
+				yt.streams.filter(file_extension='mp4').first().download('static/videos', filename=down_name)
+				file_name = f'{down_name}.mp4'
 				variable_i = open('variable.txt', 'w')
 				variable_i.write(str(i+1))
 				variable_i.close()
@@ -45,15 +46,16 @@ def index():
 		if 'audio' in request.form:
 			if request.form['audio'] == 'Scarica audio':
 				gay_list = yt.streams.filter(only_audio=True).first()
-				yt.streams.filter(only_audio=True).first().download('static/videos')
+				down_name = f'video{i}'
+				yt.streams.filter(only_audio=True).first().download('static/videos', filename=down_name)
 				extension = str(gay_list)
 				ext = extension[37:41]
 				if ext == "webm":
 					print(ext)
-					file_name = f'{titolo}.{ext}'
+					file_name = f'{down_name}.{ext}'
 				else: 
 					ext = extension[37:40]
-					file_name = f'{titolo}.{ext}'
+					file_name = f'{down_name}.{ext}'
 				variable_i = open('variable.txt', 'w')
 				variable_i.write(str(i+1))
 				variable_i.close()
