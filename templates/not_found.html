@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block container %}
+
+<div class="image">
+		<div class="error">
+			<h1>Il suo file non é stato trovato</h2>
+			<h4>Ricordati che dopo il convertimento hai 5 minuti per scaricare il file</h4>
+		</div>
+</div>
+<div class="container">
+	<div class="button-area">
+		<a href="/"><input type="submit" value="Torna alla Home" class="start-button"></a>
+	</div>
+</div>
+<style>
+	.container{height: 300px;}
+</style>
+{% endblock %}

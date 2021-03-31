@@ -483,6 +483,18 @@ footer span img{
 	margin-right: 5px;
 }
 
+.error {
+	color: white;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.error h1{
+	font-size: 3.1em;
+	margin-bottom: 13px;
+}
+
 /* smartphone adaptivity */
 
 @media screen and (max-width: 640px) {
@@ -626,6 +638,15 @@ footer span img{
 
 	.download-button img {
 		width: 16px;
+	}
+
+	.error h1{
+		font-size: 2.1em;
+		margin-bottom: 13px;
+	}
+
+	.error{
+		text-align: center;
 	}
 }
 

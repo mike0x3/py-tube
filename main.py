@@ -26,7 +26,7 @@ def index():
 		titolo = yt.title
 		descrizione = yt.description
 		preview = yt.thumbnail_url
-		try:
+		if 'video' in request.form:
 			if request.form['video'] == 'Scarica video':
 				yt.streams.filter(file_extension='mp4').first().download('static/videos')
 				file_name = f'test{i}.mp4'
@@ -37,9 +37,10 @@ def index():
 				threading.Thread(target=delete_file, name="Thread1", args=[file_name]).start()
 				flash('File in arrivo')
 				return render_template('index.html', titolo=titolo, descrizione=descrizione, preview=preview, file_name=file_name)
-		except Exception:
-			return '<h1>Errore nel server</h1>'
-		try:
+		else:
+			pass
+
+		if 'audio' in request.form:
 			if request.form['audio'] == 'Scarica audio':
 				gay_list = yt.streams.filter(only_audio=True).first()
 				yt.streams.filter(only_audio=True).first().download('static/videos')
@@ -58,8 +59,8 @@ def index():
 				threading.Thread(target=delete_file, name="Thread1", args=[file_name]).start()
 				flash('File in arrivo')
 				return render_template('index.html', titolo=titolo, descrizione=descrizione, preview=preview, file_name=file_name)
-		except Exception:
-			return '<h1>Errore nel server</h1>'
+		else:
+			pass
 	else:
 		return render_template('index.html')
 
@@ -86,3 +87,7 @@ def contattaci():
 		flash('La sua domanda é stata inviata ai nostri admin!')
 		return render_template('contact.html')
 	return render_template('contact.html')
+
+@app.errorhandler(404)
+def not_found(error):
+	return render_template('not_found.html', error=error), 404
