@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = 'qwdiOKLWF2342JKEd'
 def delete_file(name):
 	direction = 'static/videos/'
-	time.sleep(300)
+	time.sleep(400)
 	os.remove(f'{direction}{name}')
 	return 'ok'
 
@@ -24,6 +24,9 @@ def index():
 		link = request.form['link']
 		yt = YouTube(link)
 		titolo = yt.title
+		for l in titolo:
+			if l == "|":
+				titolo = titolo.replace("|", "")
 		descrizione = yt.description
 		preview = yt.thumbnail_url
 		if 'video' in request.form:
