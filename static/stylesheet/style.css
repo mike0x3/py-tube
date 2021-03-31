@@ -9,13 +9,30 @@ a{
 
 html {
   scroll-behavior: smooth;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+}
+
+header{
+	width: 100%;
+	height: 70px;
+	position: fixed;
+	z-index: 1;
+	background: white;
+	box-sizing: border-box;
+	z-index: 2;
 }
 
 .header{
-	height: 70px;
 	width: 100%;
 	font-family: 'Roboto', sans-serif !important;
 	display: flex;
+
 }
 
 .logo{
@@ -45,7 +62,7 @@ html {
 	align-content: center;
 	justify-content: flex-end;
 	align-items: center;
-	margin-right: 30px;
+	margin-right: 20px;
 }
 
 .right-header a{
@@ -63,28 +80,68 @@ html {
 
 .container {
 	background-color: #F9F9F9;
+	width: 100%;
 	padding-top: 5%;
 	padding-left: 13%;
 	padding-right: 13%;
 	padding-bottom: 0 !important;
 	font-family: 'Poppins', sans-serif;
+	box-sizing: border-box;
+}
+
+.img-margin{
+	width: 100%;
+	padding-top: 80px;
 }
 
 .image {
 	display: flex;
-	border-radius: 10px;
 	align-content: center;
 	flex-direction: column;
 	justify-content: center;
 	background-image: url('/static/images/background.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	background-position: center;
 	width: 100%;
-	height: 300px;
+	height: 400px;
 	margin-bottom: 20px;
+	margin-top: 0px;
+	padding-top: 60px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.image h2{
+	color: white;
 }
 
 .header2 {
 	text-align: center;
+}
+
+.bars-icon {
+  display: inline-block;
+}
+
+.icon-bar1, .icon-bar2, .icon-bar3 {
+  width: 35px;
+  height: 4px;
+  background-color: black;
+  margin: 6px 0;
+  transition: 0.4s;
+  border-radius: 2px;
+}
+
+.change .icon-bar1 {
+  transform: rotate(-45deg) translate(-9px, 7px);
+}
+
+.change .icon-bar2 {
+  opacity: 0;
+}
+
+.change .icon-bar3 {
+  transform: rotate(45deg) translate(-6px, -6px);
 }
 
 .form{
@@ -101,9 +158,16 @@ html {
 	width: 70%;
 	height: 25%;
 	border: none;
-	border-bottom: solid 1px black;
+	border-bottom: solid 1px white;
 	background: transparent;
 	border-radius: 0 !important;
+	transition: 0.5s;
+	color: white;
+}
+
+.input:focus {
+	width: 85%;
+	height: 35%;
 }
 
 .margin-bottom {
@@ -111,7 +175,11 @@ html {
 }
 
 .submit {
-	display: inline;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+	flex-direction: row;
 	margin-top: 5px;
 }
 
@@ -123,6 +191,7 @@ html {
 	background-color: #F90F01;
 	color: white;
 	transition: 0.5s;
+	margin: 8px;
 	box-shadow: 3px 3px 12px 6px rgba(249, 15, 1, 0.4);
 }
 
@@ -230,34 +299,34 @@ html {
 
 .number1{
 	border-radius: 50%;
-	background-color: blue;
+	background-color: rgba(0,60,255,0.3);
 	display: table;
 	text-align: center;
 	width: 80px;
 	height: 80px;
-	color: white;
+	color: rgba(0,60,255,0.9);
 	margin-right: 20px;
 }
 
 .number2{
 	border-radius: 50%;
-	background-color: red;
+	background-color: rgba(255,0,0,0.3);
 	display: table;
 	text-align: center;
 	width: 80px;
 	height: 80px;
-	color: white;
+	color: rgba(255,00,0,0.8);
 	margin-right: 20px;
 }
 
 .number3{
 	border-radius: 50%;
-	background-color: green;
+	background-color: rgba(0,255,80,0.3);
 	display: table;
 	text-align: center;
 	width: 80px;
 	height: 80px;
-	color: white;
+	color: rgba(0,255,80,0.8);
 	margin-right: 20px;
 }
 
@@ -352,6 +421,224 @@ footer span img{
 	margin-top: 12px;
 }
 
+.buttons{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: 13px;
+}
 
+.video-download{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.preview{
+	width: 30%;
+	border-radius: 10px;
+	border: solid 2px white;
+	margin-bottom: 13px;
+}
+
+.download-button{
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #2BA746;
+	box-shadow: 3px 3px 12px 6px rgba(43,167,70, 0.4);
+	transition: 0.3s;
+	color: #FFF;
+	margin-right: 25px;
+}
+
+.download-button:hover{
+	background-color: #4B474C;
+	box-shadow: none;
+}
+
+.another-button{
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border-radius: 5px;
+	color: #FFF;
+	background-color: #F90F01;
+	box-shadow: 3px 3px 12px 6px rgba(249,15,1, 0.4);
+	transition: 0.3s
+}
+
+.another-button:hover{
+	background-color: #4B474C;
+	box-shadow: none;
+}
+
+.download-button img{
+	width: 17px;
+	margin-right: 5px;
+}
+.another-button img{
+	width: 17px;
+	margin-right: 5px;
+}
+
+/* smartphone adaptivity */
+
+@media screen and (max-width: 640px) {
+	@keyframes animatenavbar {
+    	from {top:-300px; opacity: 0}
+    	to {top: 0; opacity: 1}
+  	}
+
+  	@-webkit-keyframes animatenavbar {
+   		from {top:-300px; opacity:0} 
+    	to {top:0; opacity:1}
+  	}
+
+	.menu-button {
+   	 	float: right;
+   	 	width: 15%;
+ 	}
+
+ 	.header {
+ 		display: flex;
+ 		justify-content: space-between;
+ 		align-items: center;
+ 		align-content: center;
+
+ 	}
+
+ 	.mobile-right {
+   		width: 100%;
+    	display: none !important;
+    	-webkit-animation-name: animatetop;
+    	-webkit-animation-duration: 0.5s;
+    	animation-name: animatetop;
+    	animation-duration: 0.5s;
+    	margin: 0 !important;
+    	background-color: white;
+    	display: inline;
+    	padding-left: 7px;
+  	}
+
+  	.mobile-right li{
+  		margin-left: 25px;
+  		list-style-type: none;
+  		margin: 10px;
+  		padding: 6px;
+
+  	}
+
+  	.mobile-visible{
+  		display: flex !important;
+  	}
+
+  	.mobile-right a{
+  		color: black;
+  		text-decoration: none;
+  	}
+
+  	.right-header{
+  		display: none;
+  	}
+
+	.card {
+		width: 88%;
+	}
+
+	.cards{
+		flex-direction: column;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.form input{
+		margin: 10px;
+	}
+
+	.info {
+		display: none;
+	}
+
+	.container {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	.tutorial {
+		width: 80%;
+		margin-left: 8.5% !important;
+		flex-direction: column;
+	}
+
+	.block {
+		width: 100%;
+	}
+
+	footer {
+		margin-top: 20px;
+		width: 90%;
+		zoom: 90%;
+	}
+
+	iframe {
+		display: none;
+	}
+
+	.direct-contact h2{
+		margin-left: 20px;
+	}
+
+	.contact-form{
+		margin-top: 70px;
+		margin-left: 20px;
+	}
+
+	.social-direct{
+		margin-left: 20px;
+	}
+
+	.social-direct li{
+		width: 50%;
+	}
+
+	.textarea{
+		width: 80%;
+	}
+
+	.preview{
+		width: 90%;
+	}
+
+	.another-button h3 {
+		font-size: 0.9em;
+	}
+
+	.download-button h3 {
+		font-size: 0.9em;
+	}
+
+	.another-button img {
+		width: 16px;
+	}
+
+	.download-button img {
+		width: 16px;
+	}
+}
+
+/* to not display menu button on desktop */
+
+@media screen and (min-width: 641px) {
+  .menu-button {
+    display: none;
+  }
+
+  .mobile-right{
+  	display: none;
+  }
+}
 
 

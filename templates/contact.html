@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block container %}
+<div class="container">
 {% for message in get_flashed_messages() %}
-<h1>{{ message }}</h1>
+<h3>{{ message }}</h3>
 {% endfor %}
 <div class="contact-form">
 	
 	<div class="contact-content">
 		<h1>Inserisci Il tuo messaggio</h1>
-		<form action="/contattaci" method="post">
+		<form action="/contact" method="post">
 			<label for="name">Nome e Cognome</label>
 			<input id="contact-input1" class="contact-input" type="text" name="name" value="" required="required">
 			<br>
@@ -37,5 +38,6 @@
 			<li><a href="https://twitter.com/mike_0x3"> Twitter <i class="fab fa-twitter"></i></a></li>
 		</ul>
 	</div>
+</div>
 </div>
 {% endblock %}

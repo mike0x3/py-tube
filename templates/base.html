@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -18,6 +19,15 @@
 					<a href="/"><h1>FreeTube</h1></a>
 				</div>
 			</div>
+			<div class="menu-button" onclick="mobileNavbar()">
+ 				<a class="icon">
+    				<div class="bars-icon" onclick="navbarAnimation(this)">
+						<div class="icon-bar1"></div>
+						<div class="icon-bar2"></div>
+						<div class="icon-bar3"></div>
+					</div>
+ 				</a>
+ 			</div>
 			<div class="right-header">
 				<ul>
 					<a onclick="toTutorial()"><li>Come si fa?</li></a>
@@ -26,15 +36,26 @@
 				</ul>
 			</div>
 		</div>
+		<div class="mobile-right" id="header-right">
+			<ul>
+				<a onclick="toTutorial()"><li>Come si fa?</li></a>
+				<a onclick="toFeatures()"><li>Features</li></a>
+				<a href="/contact"><li>Contattaci</li></a>
+			</ul>
+		</div>
 	</header>
-	<div class="container">
+	
 		{% block container %}
 		{% endblock %}
-	</div>
+
 	<footer>
 		<div class="space"></div>
 		<span class="footer">©2021 FreeTube Versione ALPHA 0.1 Segui i nostri social: <a href=""><img src="{{ url_for('static', filename='images/instagram.svg')}}" alt="instagram"></a> <a href=""><img src="{{ url_for('static', filename='images/facebook.svg')}}" alt="facebook"></a> <a href=""><img src="{{ url_for('static', filename='images/twitter.svg')}}" alt="twitter"></a> <a href=""><img src="{{ url_for('static', filename='images/email.svg')}}" alt="email"></a></span>
 	</footer>
 <script src="{{ url_for('static', filename='scripts/script.js')}}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>
