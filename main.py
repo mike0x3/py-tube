@@ -38,7 +38,7 @@ def index():
 				flash('File in arrivo')
 				return render_template('index.html', titolo=titolo, descrizione=descrizione, preview=preview, file_name=file_name)
 		except Exception:
-			pass
+			return '<h1>Errore nel server</h1>'
 		try:
 			if request.form['audio'] == 'Scarica audio':
 				gay_list = yt.streams.filter(only_audio=True).first()
@@ -59,7 +59,7 @@ def index():
 				flash('File in arrivo')
 				return render_template('index.html', titolo=titolo, descrizione=descrizione, preview=preview, file_name=file_name)
 		except Exception:
-			pass
+			return '<h1>Errore nel server</h1>'
 	else:
 		return render_template('index.html')
 
