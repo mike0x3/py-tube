@@ -29,7 +29,7 @@ def index():
 		if 'video' in request.form:
 			if request.form['video'] == 'Scarica video':
 				yt.streams.filter(file_extension='mp4').first().download('static/videos')
-				file_name = titolo
+				file_name = f'{titolo}.mp4'
 				variable_i = open('variable.txt', 'w')
 				variable_i.write(str(i+1))
 				variable_i.close()
@@ -47,11 +47,10 @@ def index():
 				ext = extension[37:41]
 				if ext == "webm":
 					print(ext)
-					file_name = f'test{i}.{ext}'
+					file_name = f'{titolo}.{ext}'
 				else: 
 					ext = extension[37:40]
-					file_name = f'test{i}.{ext}'
-				file_name = titolo
+					file_name = f'{titolo}.{ext}'
 				variable_i = open('variable.txt', 'w')
 				variable_i.write(str(i+1))
 				variable_i.close()
