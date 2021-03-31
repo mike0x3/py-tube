@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = 'qwdiOKLWF2342JKEd'
 def delete_file(name):
 	direction = '/Users/nontuopc01/Desktop/PyTube [TEST] V0.1 ALPHA/static/videos/'
-	time.sleep(20)
+	time.sleep(300)
 	os.remove(f'{direction}{name}')
 
 @app.route('/', methods=['POST', 'GET'])
