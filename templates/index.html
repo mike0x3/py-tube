@@ -21,12 +21,16 @@
 				</div></a>
 				</div>
 			</div>
+		{% elif mex == "Video non disponibile" %}
+			<h3 style="color: white; text-align: center;">{{ mex }}</h3>
+			
 		{% endif %}
 	{% endfor %}
 		<div class="video-form">
 			<h2 class="header2 margin-top">Downloader di video da YouTube in alta risoluzione</h2>
 			<form action="/" method="POST" class="form">
-				<input type="text" name="link" class="input margin-bottom">
+				<input type="url" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" name="link" class="input margin-bottom" required pattern="https?://.+" onfocus="this.placeholder = ''"
+onblur="this.placeholder = 'Inserisci il link'">
 				<div class="submit">
 					<input type="submit" value="Scarica video" name="video" class="margin-bottom submit-button">
 					<input type="submit" value="Scarica audio" name="audio" class="margin-bottom submit-button">

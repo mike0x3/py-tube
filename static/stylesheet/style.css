@@ -5,6 +5,7 @@
 
 a{
 	text-decoration: none;
+	color: black;
 }
 
 html {
@@ -660,6 +661,79 @@ footer span img{
   .mobile-right{
   	display: none;
   }
+}
+
+/* Most popular monitor resolutions adaptation */
+
+@media screen and (width: 1920px) and (height: 1080px) {
+  body {
+    -moz-transform: scale(1.6); /* for Firefox, default 1*/
+    -o-transform: scale(1.6);
+    -ms-transform: scale(1.6);
+    -webkit-transform: scale(1.6);
+    zoom:160%; /* For Chrome, IE, default 100%*/
+  }
+}
+
+@media screen and (width: 1366px) and (height: 768px) {
+  body {
+    -moz-transform: scale(1.3); /* for Firefox, default 1*/
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    zoom:130%; /* For Chrome, IE, default 100%*/
+  }
+}
+
+@media screen and (width: 1536px) and (height: 864px) {
+  body {
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    zoom: 125%;
+  }
+}
+
+@media screen and (width: 1440px) and (height: 900px) {
+  body {
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    zoom: 130%;
+  }
+}
+
+
+@media screen and (width: 1280px) and (height: 1024px) {
+  body {
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    zoom: 130%;
+  }
+}
+
+@media screen and (width: 1600px) and (height: 900px) {
+  body {
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    zoom: 130%;
+  }
+}
+
+@media screen and (width: 2560px) and (height: 1440px) {
+	body {
+    	-moz-transform: scale(1.8);
+    	-o-transform: scale(1.8);
+    	-ms-transform: scale(1.8);
+    	-webkit-transform: scale(1.8);
+    	zoom: 180%;
+  	}
 }
 
 

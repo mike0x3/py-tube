@@ -22,7 +22,11 @@ def index():
 		i = int(variable_i.read())
 		variable_i.close()
 		link = request.form['link']
-		yt = YouTube(link)
+		try:
+			yt = YouTube(link)
+		except Exception:
+			flash('Video non disponibile')
+			return render_template('index.html')
 		titolo = yt.title
 		for l in titolo:
 			if l == "|":
@@ -93,4 +97,17 @@ def contattaci():
 
 @app.errorhandler(404)
 def not_found(error):
-	return render_template('not_found.html', error=error), 404
+	return render_template('error.html', h1='Il tuo file non é stato trovato', h4='Ricordati che dopo il convertimento hai 5 minuti per scaricare il file'), 404
+
+@app.errorhandler(400)
+def bad_request(error):
+	return render_template('error.html', h1='Non riusciamo a elaborare la tua richiesta', h4="Riprova piú tardi o contatta il <a href='/contact'>nostro team tencico</a>"), 400
+
+@app.errorhandler(500)
+def bad_request(error):
+	return render_template('error.html', h1='Errore interno nel nostro server', h4="Riprova piú tardi o contatta il <a href='/contact'>nostro team tencico</a>"), 500
+
+
+
+
+
