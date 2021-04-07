@@ -26,23 +26,27 @@
 			
 		{% endif %}
 	{% endfor %}
-		<div class="video-form">
+		<div class="video-form" id="video-form">
 			<h2 class="header2 margin-top">Downloader di video da YouTube in alta risoluzione</h2>
 			<form action="/" method="POST" class="form">
 				<input type="url" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" name="link" class="input margin-bottom" required pattern="https?://.+" onfocus="this.placeholder = ''"
 onblur="this.placeholder = 'Inserisci il link'">
 				<div class="submit">
-					<input type="submit" value="Scarica video" name="video" class="margin-bottom submit-button">
-					<input type="submit" value="Scarica audio" name="audio" class="margin-bottom submit-button">
+					<input type="submit" value="Scarica video" name="video" class="margin-bottom submit-button" onclick="loadingWindow()">
+					<input type="submit" value="Scarica audio" name="audio" class="margin-bottom submit-button" onclick="loadingWindow()">
 				</div>
 			</form>
+		</div>
+		<div class="loading" id="loading">
+			<h1>Il suo video si sta convertendo</h1>
+			<img src="{{ url_for('static', filename='images/loading.gif')}}" alt="">
 		</div>
 	</div>
 	</div>
 	<div class="container">
 		<h2 class="header2 separator" id="toFeatures">Il Miglior Sito Italiano Per Scaricare Contenuti Da YouTube</h2>
 		<div class="cards">
-			<div class="card" data-aos="zoom-in" data-aos-duration="600">
+			<div class="card">
 				<div class="card-image">
 					<img src="{{ url_for('static', filename='images/uhr.svg')}}" alt="Orologio" width="180px">
 				</div>
@@ -51,7 +55,7 @@ onblur="this.placeholder = 'Inserisci il link'">
 					<p>Questo sito offre il modo più veloce e facile per scaricare e salvare qualunque video in MP3 p MP4. Semplicemente copia l'URL YouTube, incollalo nel campo di ricerca e clicca sul pulsante "Converti". Non c'è bisogno di registrarsi.</p>
 				</div>
 			</div>
-			<div class="card" data-aos="zoom-in" data-aos-duration="600">
+			<div class="card">
 				<div class="card-image">
 					<img src="{{ url_for('static', filename='images/infinity.svg')}}" alt="Orologio" width="180px">
 				</div>
@@ -60,7 +64,7 @@ onblur="this.placeholder = 'Inserisci il link'">
 					<p>Senza limitazioni Scarica e converti tutti i video YouTube che vuoi, senza limitazioni e sempre gratis. Doggo ipsum big ol pupper shibe blop extremely cuuuuuute, shoob doing me a frighten, maximum borkdrive big ol pupper. Woofer blop extremely cuuuuuute big ol pupper you are doin me a concern many pats.</p>
 				</div>
 			</div>
-			<div class="card" data-aos="zoom-in" data-aos-duration="600">
+			<div class="card">
 				<div class="card-image">
 					<img src="{{ url_for('static', filename='images/shield.svg')}}" alt="Orologio" width="180px">
 				</div>

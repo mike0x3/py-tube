@@ -24,5 +24,12 @@ function toTop() {
 }
 
 function navbarAnimation(x) {
-		x.classList.toggle("change");
+	x.classList.toggle("change");
+}
+
+function loadingWindow() {
+	var loading = document.getElementById('loading');
+	var video_form = document.getElementById('video-form');
+	video_form.style.display = 'none'
+	loading.style.display = 'flex'
 }
