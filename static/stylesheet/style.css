@@ -672,6 +672,15 @@ footer span img{
 	.error{
 		text-align: center;
 	}
+
+	.video-download h2{
+		font-size: 18px;
+	}
+
+	.loading h1 {
+		font-size: 30px;
+		text-align: center;
+	}
 }
 
 /* to not display menu button on desktop */
