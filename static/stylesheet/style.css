@@ -294,6 +294,14 @@ header{
 	margin: 40px 0 0 0;
 }
 
+.svg-icon {
+	transition: transform 0.6s;
+}
+
+.svg-icon:hover{
+	transform: translateY(-13px);
+}
+
 .block {
 	width: 30%;
 	display: flex;
